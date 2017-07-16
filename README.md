@@ -6,3 +6,13 @@
 * Downloading 'Allow-Control-Allow-Origin' off Chrome Store is a plug-in that works. https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
 
 * Make sure to disable it after use, as other websites DON'T work while it's switched on.
+
+// researched multiple videos:
+* https://www.youtube.com/watch?v=4UoUqnjUC2c
+* https://youtu.be/XZXg_fuyYnI?list=PL38SxEh3TouC27B5yC7u8Ytyc3N5LacOu
+
+<b>Process:</b>
+* researching about Web APIs
+* Looking through https://darksky.net/dev/
+* researching for solutions when i came accross problem
+* lots of trial and error to get things working.
