@@ -1,0 +1,98 @@
+<html>
+<head>
+</head>
+<body>
+
+<title>Weather App</title>
+
+</head>
+
+<body>
+
+<p><b>Current Location:</b></p>
+<blockquote><p id="currentLocation">Getting Location...</p></blockquote>
+
+<p><b>Current Weather:</b></p>
+<blockquote><p id="currentWeather">Current Weather...</p></blockquote>
+
+<p><b>Current Temperature:</b></p>
+<blockquote><p id="currentTemp">Current Temperature...</p></blockquote>
+
+<p><b>Current Wind Speed:</b></p>
+<blockquote><p id="currentWindSpeed">Current Wind Speed...</p></blockquote>
+
+<p><b>Current Precip Prob (0-1):</b></p>
+<blockquote><p id="currentprecipProbability">Current Precip Prob...</p></blockquote>
+
+<p><b>Is an umberella needed?</b></p>
+<blockquote><p id="umberella">umberella...</p></blockquote>
+
+<p><b>What clothing is appropriate?</b></p>
+<blockquote><p id="clothing">clothing...</p></blockquote>
+
+</body>
+
+</html>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript">
+	var API_KEY = "6b3810a4323e6b29d4fc2cf37203da0e";
+
+$(function() {
+  var loc;
+
+  $.getJSON("https://ipinfo.io", function(d) {
+    console.log("assigning the data...");
+    loc = d.loc.split(",");
+    console.log(loc);
+
+    $.getJSON(
+      "https://api.darksky.net/forecast/" +
+        API_KEY +
+        "/" +
+        loc[0] +
+        "," +
+        loc[1] +
+        "?exclude=minutely-hourly-daily-alerts-flags&units=auto",
+      function(wd) {
+        console.log("got the data ,", wd);
+        var currentLocation = wd.timezone;
+        var currentWeather = wd.currently.icon;
+        var currentTemp = wd.currently.temperature;
+        var currentWindSpeed = wd.currently.windSpeed;
+	var currentprecipProbability = wd.currently.precipProbability;
+
+        $("#currentLocation").html(currentLocation);
+        $("#currentWeather").html(currentWeather);
+        $("#currentTemp").html(currentTemp);
+        $("#currentWindSpeed").html(currentWindSpeed);
+	$("#currentprecipProbability").html(currentprecipProbability);
+
+      }
+    );
+  });
+});
+  </script>
+
+  <script>
+  if (precipProbability = "0")
+    {
+		document.getElementById("umberella").innerHTML = "NO";
+	} else if (precipProbability > "0" && score < "1") {
+    document.getElementById("umberella").innerHTML = "MAYBE";
+} else {
+    document.getElementById("umberella").innerHTML = "YES";
+}
+    </script>
+
+  <script>
+  if (currentTemp < "10")
+    {
+		document.getElementById("clothing").innerHTML = "Very cold. Wear multiple layers.";
+	} else if (precipProbability > "10" && score < "20") {
+    document.getElementById("clothing").innerHTML = "Decent temp. Shirt plus jacket and Jeans/Trousers.";
+} else {
+    document.getElementById("clothing").innerHTML = "Hot. Shorts/ other thin layers.";
+}
+    </script>
+</body>
+</html>
