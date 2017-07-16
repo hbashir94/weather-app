@@ -1,107 +1,36 @@
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="weather.css">
-</head>
-
-<body>
-
-<table>
-  <tr>
-    <th>Weather Information</th>
-    <th>Clothing + other info</th>
-  </tr>
-  <tr>
-    <td><p><div class="ex1"><blockquote><p><b>Current Location:</b></p>
-  <p id="currentLocation">Getting Location...</p></blockquote></div></p></td>
-    <td><p><div class="ex3"><blockquote><p><b>Is an umberella needed?</b></p>
-  <p id="umberella">umberella...</p></blockquote></div></p></td>
-  </tr>
-  <tr>
-    <td><p><div class="ex2"><blockquote><p><b>Current Weather:</b></p>
-  <p id="currentWeather">Current Weather...</p></blockquote></div></p></td>
-    <td><p><div class="ex3"><blockquote><p><b>What clothing is appropriate?</b></p>
-  <p id="clothing">clothing...</p></blockquote></div></p></td>
-  </tr>
-  <tr>
-    <td><p><div class="ex1"><blockquote><p><b>Current Temperature:</b></p>
-  <p id="currentTemp">Current Temperature...</p></blockquote></div></p></td>
-    <td>...</td>
-  </tr>
-  <tr>
-    <td><p><div class="ex2"><blockquote><p><b>Current Wind Speed:</b></p>
-  <p id="currentWindSpeed">Current Wind Speed...</p></blockquote></div></p></td>
-    <td>...</td>
-  </tr>
-  <tr>
-    <td><p><div class="ex1"><blockquote><p><b>Current Precipitation Probability (0-1):</b></p>
-  <p id="currentprecipProbability">Current Precip Prob...</p></blockquote></div></p></td>
-    <td>...</td>
-  </tr>
-</table>
-
-</body>
-
-</html>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript">
-	var API_KEY = "6b3810a4323e6b29d4fc2cf37203da0e";
-
-$(function() {
-  var loc;
-
-  $.getJSON("https://ipinfo.io", function(d) {
-    console.log("assigning the data...");
-    loc = d.loc.split(",");
-    console.log(loc);
-
-    $.getJSON(
-      "https://api.darksky.net/forecast/" +
-        API_KEY +
-        "/" +
-        loc[0] +
-        "," +
-        loc[1] +
-        "?exclude=minutely-hourly-daily-alerts-flags&units=auto",
-      function(wd) {
-        console.log("got the data ,", wd);
-        var currentLocation = wd.timezone;
-        var currentWeather = wd.currently.icon;
-        var currentTemp = wd.currently.temperature;
-        var currentWindSpeed = wd.currently.windSpeed;
-	var currentprecipProbability = wd.currently.precipProbability;
-
-        $("#currentLocation").html(currentLocation);
-        $("#currentWeather").html(currentWeather);
-        $("#currentTemp").html(currentTemp);
-        $("#currentWindSpeed").html(currentWindSpeed);
-	$("#currentprecipProbability").html(currentprecipProbability);
-
-      }
-    );
-  });
-});
-  </script>
-
-  <script>
-  if (precipProbability = "0")
-    {
-		document.getElementById("umberella").innerHTML = "No";
-	} else if (precipProbability > "0" && score < "1") {
-    document.getElementById("umberella").innerHTML = "Maybe";
-} else {
-    document.getElementById("umberella").innerHTML = "Yes";
+div.ex1 {
+    width: 500px;
+    margin: auto;
+    border: 3px solid #73AD21;
+    align="left";
 }
-    </script>
 
-  <script>
-  if (currentTemp < "10")
-    {
-		document.getElementById("clothing").innerHTML = "Very cold. Wear multiple layers.";
-	} else if (precipProbability > "10" && score < "20") {
-    document.getElementById("clothing").innerHTML = "Decent temperature. Shirt plus jacket and Jeans/Trousers.";
-} else {
-    document.getElementById("clothing").innerHTML = "Hot. Shorts / other thin layers.";
+div.ex2 {
+    width: 500px;
+    margin: auto;
+    border: 3px solid #ff00ff;
+    align="left";
 }
-    </script>
-</body>
-</html>
+
+div.ex3 {
+    width: 500px;
+    margin: auto;
+    border: 3px solid #000080;
+    align="right";
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
