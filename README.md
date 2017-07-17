@@ -1,11 +1,15 @@
 # weather-app
 * A service that recommends clothing to wear based on the weather forecast at your location. Makes use of the Darksky API (https://darksky.net/dev/) to gather weather forecast data.
 
+<b>Important info to run the app</b>
+
 * <b>In order for the application to work effectively, you need to make use of CORS</b> https://en.wikipedia.org/wiki/Cross-origin_resource_sharing to enable cross-origin resource sharing: (help below)
 
 * <b>Downloading 'Allow-Control-Allow-Origin'</b> off Chrome Store is a plug-in that works. https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
 
 * Make sure to disable it after use, as other websites DON'T work while it's switched on.
+
+<b>About the app:</b>
 
 * The app gathers the users location automatically based on latitude and longitude.
 
