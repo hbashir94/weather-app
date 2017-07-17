@@ -11,7 +11,7 @@
 
 * information shown is based on the users current location.
 
-* ...
+* I also made use of another API http://ipinfo.io to gather users' current location information (latitude and longitude).
 
 // researched multiple videos:
 * https://www.youtube.com/watch?v=4UoUqnjUC2c
