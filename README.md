@@ -7,6 +7,12 @@
 
 * Make sure to disable it after use, as other websites DON'T work while it's switched on.
 
+* The app gathers the users location automatically based on latitude and longitude.
+
+* information shown is based on the users current location.
+
+* ...
+
 // researched multiple videos:
 * https://www.youtube.com/watch?v=4UoUqnjUC2c
 * https://youtu.be/XZXg_fuyYnI?list=PL38SxEh3TouC27B5yC7u8Ytyc3N5LacOu
