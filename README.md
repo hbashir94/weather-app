@@ -17,6 +17,8 @@
 
 * I also made use of another API http://ipinfo.io to gather users' current location information (latitude and longitude).
 
+I tried to make it possible for the user to enter their own latitude and longitude coordinates - to get data outputted based on the inputted location - but I have struggled to get the function working. It definitely is something to work on.
+
 <b>I researched multiple videos:</b>
 * https://www.youtube.com/watch?v=4UoUqnjUC2c
 * https://youtu.be/XZXg_fuyYnI?list=PL38SxEh3TouC27B5yC7u8Ytyc3N5LacOu
